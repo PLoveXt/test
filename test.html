@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>纪念币预约测试表单</title>
+    <style>
+        body {width: 500px; margin: 50px auto; font-size: 16px;}
+        .form-item {margin: 15px 0;}
+        label {display: inline-block; width: 100px;}
+        input, select {width: 300px; padding: 8px;}
+        button {width: 100%; padding: 10px; background: #0066cc; color: #fff; border: none; border-radius: 4px; cursor: pointer;}
+        .success-tip {color: green; display: none;}
+    </style>
+</head>
+<body>
+    <h2>马年纪念币预约测试</h2>
+    <form id="reserveForm">
+        <div class="form-item">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-item">
+            <label for="certNo">身份证号：</label>
+            <input type="text" id="certNo" name="certNo" required>
+        </div>
+        <div class="form-item">
+            <label for="mobile">手机号：</label>
+            <input type="text" id="mobile" name="mobile" required>
+        </div>
+        <div class="form-item">
+            <label for="branchId">预约网点：</label>
+            <select id="branchId" name="branchId" required>
+                <option value="11000010">海淀支行</option>
+                <option value="11000020">朝阳支行</option>
+                <option value="11000030">丰台支行</option>
+                <option value="11000040">石景山支行</option>
+                <option value="11000050">房山支行</option>
+            </select>
+        </div>
+        <div class="form-item">
+            <label for="verifyCode">验证码：</label>
+            <input type="text" id="verifyCode" name="verifyCode" required>
+        </div>
+        <button type="submit" class="btn-submit">提交预约</button>
+        <p class="success-tip" id="successTip">提交成功！</p >
+    </form>
+
+    <script>
+        // 模拟提交逻辑
+        const form = document.getElementById('reserveForm');
+        const tip = document.getElementById('successTip');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            setTimeout(() => {
+                tip.style.display = 'block';
+                form.reset();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
